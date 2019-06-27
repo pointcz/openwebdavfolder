@@ -11,6 +11,7 @@ Place this app in **nextcloud/apps/** and enable
 ```
 @echo off
 set str=%1%
+net use \\<YOUR_SERVER_URL>@SSL\DavWWWRoot\remote.php\webdav
 call powerShell.exe -ExecutionPolicy RemoteSigned -Command "&{[Reflection.Assembly]::LoadWithPartialName('System.Web')|Out-Null; $url = ($env:str -replace '[/]', '\') -replace 'openwebdav:', ''; start explorer.exe -ArgumentList ([System.Web.HttpUtility]::UrlDecode($url));}"
 ```
 
